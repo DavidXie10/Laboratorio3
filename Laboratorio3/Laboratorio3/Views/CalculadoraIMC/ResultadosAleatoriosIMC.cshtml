@@ -20,7 +20,7 @@
         <hr />
     </div>
     <div class="seccion_2" id="s2">
-        <a class="btn btn-info" href="../../">Volver al inicio</a>
+        <a class="btn btn-info" href="https://localhost:44345/">Volver al inicio</a>
     </div>
     <hr />
     <div class="seccion_3" id="s3">
@@ -32,21 +32,20 @@
                 <th>Estatura</th>
                 <th>IMC</th>
             </tr>
-            @for (int persona = 0; persona < 30; ++persona)
+            @for (int persona = 0; persona < ViewBag.personas.Count; ++persona)
             {
                 <tr>
                     <td>@ViewBag.personas[persona].id</td>
                     <td>@ViewBag.personas[persona].Nombre</td>
                     <td>@ViewBag.personas[persona].Peso</td>
                     <td>@ViewBag.personas[persona].Estatura</td>
-
-                    @if (ViewBag.IMCs[persona] > 18.5 && ViewBag.IMCs[persona] < 24.9)
+                    @if (ViewBag.personas[persona].IMC > 18.5 && ViewBag.personas[persona].IMC < 24.9)
                     {
-                        <td class="text-success">@ViewBag.IMCs[persona]</td>
+                        <td class="text-success">@ViewBag.personas[persona].IMC</td>
                     }
                     else
                     {
-                        <td class="text-danger">@ViewBag.IMCs[persona]</td>
+                        <td class="text-danger">@ViewBag.personas[persona].IMC</td>
                     }
                 </tr>
             }

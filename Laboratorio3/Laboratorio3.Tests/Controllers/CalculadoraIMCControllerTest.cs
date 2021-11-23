@@ -8,14 +8,25 @@ namespace Laboratorio3.Tests.Controllers {
     public class CalculadoraIMCControllerTest {
         [TestMethod]
         public void TestResultadoIMCViewResult() {
-            //Arrange
+            // Arrange
             CalculadoraIMCController calculadoraController = new CalculadoraIMCController();
-            //Act
+            // Act
             ViewResult vista = calculadoraController.ResultadoIMC() as ViewResult;
-            //Assert
-            Assert.AreEqual("calculadoraController", vista.ViewName);
+            // Assert
+            Assert.AreEqual("ResultadoIMC", vista.ViewName);
         }
 
+        [TestMethod]
+        public void ListadoDeResultadosImcCantidadDePersonasEsCorrecta() {
+            // Arrange
+            int numeroPersonas = 8;
+            CalculadoraIMCController calculadoraController = new CalculadoraIMCController();
 
+            // Act
+            ViewResult vista = calculadoraController.ResultadosAleatoriosIMC() as ViewResult;
+
+            // Assert
+            Assert.AreEqual(numeroPersonas, vista.ViewBag.personas.Count);
+        }
     }
 }
